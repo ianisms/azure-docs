@@ -116,7 +116,10 @@ The following steps outline a typical workflow for a Customer Lockbox for Micros
 
 ## Auditing logs
 
-Customer Lockbox logs are stored in activity logs. In the Azure portal, select **Activity Logs** to view auditing information related to Customer Lockbox requests. You can filter for specific actions, such as:
+Customer Lockbox logs are stored in activity logs for subscription-scoped requests and in the [Entra Audit Log](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests. 
+
+### Subscription-Scoped Requests - Activity Log
+In the Azure portal, select **Activity Logs** to view auditing information related to Customer Lockbox requests. You can filter for specific actions, such as:
 - **Deny Lockbox Request**
 - **Create Lockbox Request**
 - **Approve Lockbox Request**
@@ -125,6 +128,23 @@ Customer Lockbox logs are stored in activity logs. In the Azure portal, select *
 As an example:
 
 :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" alt-text="A screenshot of the activity logs.":::
+
+### Tenant-Scope requests - Audit Log
+
+For tenant-scoped requests, use the [Entra Audit Log](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-audit-logs) to see Azure Lockbox Requests. The Entra Audit Log entries for tenant-scoped Azure Lockbox are created by the Access Reviews service with activities such as:
+- **Create request**
+- **Request approved**
+- **Request denied**
+
+As an example:
+
+:::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-entraauditlogs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-entraauditlogs.png" alt-text="A screenshot of the audit logs.":::
+
+
+> [!NOTE]
+> There was an undocuumented History tab in the Azure Lockbox portal blade that showed some request history. This tab was never intended to be part of the general reelease of the azure Lockbox portal blade and as such has been removed. 
+> 
+> To see Azure Lockbox request history, please use the Activity Log for subscription-scoped requests and the [Entra Audit Log](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
 
 ## Customer Lockbox for Microsoft Azure integration with the Microsoft cloud security benchmark
 
